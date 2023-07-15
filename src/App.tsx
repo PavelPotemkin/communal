@@ -2,18 +2,18 @@ import * as React from 'react';
 import Section from './Section'
 import { Card } from '@mui/material';
 
-interface Values {
+interface IValues {
   water: number;
   gas: number;
   electricity: number;
 }
 
-interface Context {
-  misha: Values;
-  pasha: Values;
+export interface IContext {
+  misha: IValues;
+  pasha: IValues;
 }
 
-const defaultValue: Context = {
+const defaultValue: IContext = {
   misha: {
     water: 0,
     gas: 0,
@@ -26,10 +26,10 @@ const defaultValue: Context = {
   }
 };
 
-export const Context = React.createContext<Context>({...defaultValue});
+export const Context = React.createContext<IContext>({...defaultValue});
 
 export default function MyApp() {
-  const [values, changeValues] = React.useState<Context>({...defaultValue});
+  const [values, changeValues] = React.useState<IContext>({...defaultValue});
 
   const result = React.useMemo(() => {
     const misha = Object.values(values.misha).reduce((acc, value) => acc + (+value || 0), 0);

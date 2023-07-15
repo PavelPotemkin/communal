@@ -1,11 +1,11 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
-import { Context } from './App';
+import { Context, IContext } from './App';
 
 interface Props {
     type: 'water' | 'gas' | 'electricity';
-    onChange: (values: Context) => void;
+    onChange: (values: IContext) => void;
 }
 
 const nameTypeMap = {
